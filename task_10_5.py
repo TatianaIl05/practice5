@@ -1,9 +1,14 @@
-pin_code = int(input('Введите PIN-код: '))
+pin_code = input('Введите PIN-код: ')
 answer = 'OK'
-if 1900 <= pin_code <= 2050:
+
+if len(pin_code) != 4:
     answer = 'ERROR'
-if len(str(pin_code)) != 4:
+
+for number in pin_code:
+    if pin_code.count(number) > 1:
+        answer = 'ERROR'
+
+if 1900 <= int(pin_code) <= 2050:
     answer = 'ERROR'
-if len(str(pin_code)) != len(set(str(pin_code))):
-    answer = 'ERROR'
+
 print(answer)
